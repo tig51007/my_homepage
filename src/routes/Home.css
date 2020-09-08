@@ -1,0 +1,79 @@
+body{
+  
+  text-align:center;
+  
+}
+.js-clock{
+  background-color: white;
+  margin: 0 auto;
+  width:200px;
+  border-radius: 20px;
+}
+
+.form{
+  display:none;  
+  margin: 0 auto;
+}
+
+.showing{
+  display:block;
+  margin: 0 auto;
+}
+.js-toDoForm{
+  margin: 0 auto;
+  border-radius: 20px;
+}
+.js-toDoList{
+  background-color: white;
+  border-radius: 20px;
+  
+  width:200px;
+  margin: 0 auto;
+}
+.match{
+  background-color: lightblue;
+  width: 1000px;
+  height: 120px;
+  margin: 10px;
+  text-align:left;
+}
+
+.js-weather{
+  font-weight: bold;
+  font-size: 20px;
+  margin:  auto;
+  background-color: black;
+  width:200px;
+  border-radius: 20px;
+  color: white;
+  
+  
+}
+.championName{
+  text-align:center;
+}
+
+@keyframes fadeIn{
+  from{
+    opacity:0;
+  }to{
+    opacity:1;
+  }
+}
+.bgImage{
+  position: absolute;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  z-index:-1;
+  animation: fadeIn 0.5s linear;
+}
+.championInfo{
+width:200px;
+height:120px;
+}
+.championImg{
+  width:80px;
+  height:80px;
+}
