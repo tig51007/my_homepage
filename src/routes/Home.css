@@ -1,51 +1,49 @@
 body{
   
   text-align:center;
+  background-repeat: no-repeat;
+  background-size:cover;
+  background-color: black;
   
 }
-.js-clock{
-  background-color: white;
-  margin: 0 auto;
-  width:200px;
-  border-radius: 20px;
+.backGroundTheme{
+  margin-bottom: 50px;
 }
-
-.form{
-  display:none;  
-  margin: 0 auto;
-}
-
-.showing{
-  display:block;
-  margin: 0 auto;
-}
-.js-toDoForm{
-  margin: 0 auto;
-  border-radius: 20px;
-}
-.js-toDoList{
-  background-color: white;
-  border-radius: 20px;
-  
-  width:200px;
-  margin: 0 auto;
+hr{
+  width: 25px;
+  border:1px solid black
 }
 .match{
   background-color: lightblue;
   width: 1000px;
   height: 120px;
   margin: 10px;
-  text-align:left;
+  text-align:center;
+  display:flex;
+justify-content:left;
+align-items:center;
+font-size: 15px;
+font-weight: bold;
+  
+  
+  
+}
+.tier{
+  color:white
 }
 
-.js-weather{
+.myName{
   font-weight: bold;
   font-size: 20px;
-  margin:  auto;
-  background-color: black;
-  width:200px;
+  margin:  auto ;
+  background-color: white;
+  width:300px;
+  height:50px;
   border-radius: 20px;
-  color: white;
+  color:black;
+  
+  
+  
   
   
 }
@@ -53,27 +51,65 @@ body{
   text-align:center;
 }
 
-@keyframes fadeIn{
-  from{
-    opacity:0;
-  }to{
-    opacity:1;
-  }
+
+.theItem img{
+width: 30px;
+
+
 }
-.bgImage{
-  position: absolute;
-  top:0;
-  left:0;
-  width: 100%;
-  height: 100%;
-  z-index:-1;
-  animation: fadeIn 0.5s linear;
-}
+
+
 .championInfo{
 width:200px;
-height:120px;
+height:80px;
+
+display:flex;
+            
+            align-items:center;
+
 }
+
 .championImg{
   width:80px;
   height:80px;
 }
+
+
+
+
+
+.matchInfo img{
+  
+  width:18px;
+  
+  
+}
+.matchInfo{
+  font-size:8px;
+  text-align: left;
+ 
+  
+}
+.table{
+  width:100px;
+  text-align:left;
+  top:0px;
+  
+}
+.spellImg{
+  width:35px;
+  
+}
+.backHr{
+  width:100%;
+  
+}
+.compoGame{
+  background-color: white;
+
+}
+
+.div{
+  
+}
+

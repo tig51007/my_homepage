@@ -3,7 +3,7 @@ import axios from "axios";
 import "./Home.css";
 import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
-//import Game from "../components/Game";
+import Game from "../components/Game";
 
 
 
@@ -17,6 +17,14 @@ class Home extends React.Component{
     myGame:[],
     chamImg:[],
     winFail:[],
+    killDeath:[],
+    myItem:[],
+    otherSummon:[],
+    otherChamp:[],
+    spell1:[],
+    spell2:[],
+    tData:[],
+    rankData:[]
     
   };
   
@@ -40,40 +48,59 @@ componentDidMount(){
             .then(metchData=>this.setState({myMetch: metchData[0]}))
   fetch('api/lol3')               
             .then(res=>res.json())
-            .then(gameData=>this.setState({myGame:  gameData}))
+            .then(gameData=>this.setState({myGame: gameData}))
+            
   fetch('api/lol5')               
             .then(res=>res.json())
             .then(winData=>this.setState({winFail:  winData}))
+  fetch('api/lol6')               
+            .then(res=>res.json())
+            .then(killData=>this.setState({killDeath:  killData}))
+  fetch('api/lol7')               
+            .then(res=>res.json())
+            .then(itemData=>this.setState({myItem:  itemData}))
+  fetch('api/lol8')               
+            .then(res=>res.json())
+            .then(summonData=>this.setState({otherSummon:  summonData})) 
+  fetch('api/lol9')               
+            .then(res=>res.json())
+            .then(champData=>this.setState({otherChamp:  champData})) 
+  fetch('api/lol10')               
+            .then(res=>res.json())
+            .then(mySpell=>this.setState({spell1: mySpell})) 
+  fetch('api/lol11')               
+            .then(res=>res.json())
+            .then(mySpell=>this.setState({spell2: mySpell}))
+  fetch('api/lol12')               
+            .then(res=>res.json())
+            .then(tData=>this.setState({tData: tData}))  
+ fetch('api/myRank')               
+            .then(res=>res.json())
+            .then(tData=>this.setState({rankData: tData[0]}))  
             
-           
   
 }
   render(){ 
     
     
     
-    const {isLoading,myInfo,myMetch,myGame,chamImg,winFail}= this.state;
+    const {isLoading,myInfo,myMetch,myGame,chamImg,winFail,killDeath,myItem,otherChamp,otherSummon,spell1,spell2,tData,rankData}= this.state;
    
-    const style = {
- 
-      backgroundColor : 'red',
-      
-      
- 
-    }
-    const style2 = {
- 
-      backgroundColor : 'blue',
-      
-      
- 
-    }
+    
+   
+   var sortWinFail=[];
+    for(var i=0;i<20;i++){
+      sortWinFail[i]={"winFail":winFail[i]};
+      }
+     
     var imE=[];
    for(var i=0;i<20;i++){
-   imE[i]={game:myGame[i],winFail:winFail[i]};
+     
+   imE[i]={...myGame[i],...sortWinFail[i],...killDeath[i],...myItem[i],...otherSummon[i],...otherChamp[i],...spell1[i],...spell2[i],...tData[i]};
    }
-   console.log(imE);
-   console.log(myGame)
+   
+   
+   
     return <section className ="container">
 
       {isLoading
@@ -84,41 +111,71 @@ componentDidMount(){
 
        :(<body>
          
-         
+         <div className="backGroundTheme">
          
         
         
-       <div className="js-weather">
-       {myInfo.name}
+       <div className="myName">
+       {myInfo.name}.gg
        
    </div>
-   <div >
-     포지션: {myMetch.lane}
+   <div className="tier" >
+     티어:{rankData.tier} {rankData.rank} 승:{rankData.wins} 패:{rankData.losses}
      
      </div>
-     {imE.map(game=> (
-                        game.winFail=="Win"?
-                        <div className="match" >
-                            <div className="championInfo">
-                              <img className="championImg" src={"https://ddragon.leagueoflegends.com/cdn/10.6.1/img/champion/"+game.game.img+""}/>
-                              <div className="championName">{game.game.name}</div>
-                              
-                            </div>
-                        </div>:
-                        <div className="match" style={style}>
-                        <div className="championInfo">
-                          <img className="championImg" src={"https://ddragon.leagueoflegends.com/cdn/10.6.1/img/champion/"}/>
-                          <div className="championName"></div>
-                          
-                        </div>
-                        </div>
+     </div><div className="compoGame">
+    {imE.map(game=> (
+                        <Game
+                        name={game.name}
+                        img={game.img}
+                        winFail={game.winFail}
+                        kill={game.kill}
+                        death={game.death}
+                        assist={game.assist}
+                        item0={game.item0}
+                        item1={game.item1}
+                        item2={game.item2}
+                        item3={game.item3}
+                        item4={game.item4}
+                        item5={game.item5}
+                        item6={game.item6}
+                        summonerImg1={game[0]}
+                        summonerImg2={game[1]}
+                        summonerImg3={game[2]}
+                        summonerImg4={game[3]}
+                        summonerImg5={game[4]}
+                        summonerImg6={game[5]}
+                        summonerImg7={game[6]}
+                        summonerImg8={game[7]}
+                        summonerImg9={game[8]}
+                        summonerImg10={game[9]}
+                        summoner1={game.matchSummoner1}
+                        summoner2={game.matchSummoner2}
+                        summoner3={game.matchSummoner3}
+                        summoner4={game.matchSummoner4}
+                        summoner5={game.matchSummoner5}
+                        summoner6={game.matchSummoner6}
+                        summoner7={game.matchSummoner7}
+                        summoner8={game.matchSummoner8}
+                        summoner9={game.matchSummoner9}
+                        summoner10={game.matchSummoner10}
+                        spell1={game.spell1}
+                        spell2={game.spell2}
+                        time={game.gameTime}
+                        mode={game.theMode}
+                        
+                        
+                       
+                        />         
+                      
      
      ))}
      
      
+     
   
     
-   
+     </div>
    </body>)}
       </section>
 }
