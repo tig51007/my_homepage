@@ -21,7 +21,7 @@
     "request-promise": "^4.2.6"
   },
   "scripts": {
-    "start": "react-scripts start && npm install && node meadowlark.js",
+    "start": "react-scripts start",
     "start:client": "react-scripts start",
     "start:server": "node ./server/app.js",
     "build": "react-scripts build",
