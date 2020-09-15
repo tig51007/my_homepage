@@ -11,7 +11,7 @@ import Game from "../components/Game";
 
 class Home extends React.Component{
   state={
-    isLoading: false,
+    isLoading: true,
     myInfo:[],
     myMetch:[],
     myGame:[],
@@ -24,11 +24,13 @@ class Home extends React.Component{
     spell1:[],
     spell2:[],
     tData:[],
-    rankData:[]
+    rankData:[],
+    name:'',
+    theName:''
     
   };
   
- 
+
   
  
 
@@ -76,15 +78,17 @@ componentDidMount(){
             .then(tData=>this.setState({tData: tData}))  
  fetch('https://newserver51007.herokuapp.com/api/myRank')               
             .then(res=>res.json())
-            .then(tData=>this.setState({rankData: tData[0]}))  
+            .then(tData=>this.setState({rankData: tData[0]}))
+            .then(this.setState({isLoading: false})) 
             
   
 }
+
   render(){ 
     
     
     
-    const {isLoading,myInfo,myMetch,myGame,chamImg,winFail,killDeath,myItem,otherChamp,otherSummon,spell1,spell2,tData,rankData}= this.state;
+    const {name,theName,isLoading,myInfo,myMetch,myGame,chamImg,winFail,killDeath,myItem,otherChamp,otherSummon,spell1,spell2,tData,rankData}= this.state;
    
     
    
@@ -99,13 +103,13 @@ componentDidMount(){
    imE[i]={...myGame[i],...sortWinFail[i],...killDeath[i],...myItem[i],...otherSummon[i],...otherChamp[i],...spell1[i],...spell2[i],...tData[i]};
    }
    
-   
+  
    
     return <section className ="container">
 
       {isLoading
        ? <div className="loader" >
-         <span className = "loader_text">로딩중...</span>
+         <span className = "loader_text">30초 기다리쇼</span>
          <div></div>
        </div>
 
@@ -114,15 +118,23 @@ componentDidMount(){
          <div className="backGroundTheme">
          
         
-        
-       <div className="myName">
-       {myInfo.name}.gg
        
-   </div>
+       
+<form name="input" method="post" action="./login.do">
+    <input type="text" name="memberName" />
+    <input type="submit" value="전송"/>
+</form>
+      
+       <div className="myName">
+         <div className="nameText">
+       {myInfo.name}.gg
+       </div>
+       </div>
    <div className="tier" >
      티어:{rankData.tier} {rankData.rank} 승:{rankData.wins} 패:{rankData.losses}
      
      </div>
+     
      </div><div className="compoGame">
     {imE.map(game=> (
                         <Game
