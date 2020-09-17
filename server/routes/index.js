@@ -292,4 +292,6 @@ function getSpell(){
         }
     }})
 }
+
+
 module.exports = router;

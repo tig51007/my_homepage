@@ -86,8 +86,8 @@ componentDidMount(){
 
   render(){ 
     
-    
-    
+  
+ 
     const {name,theName,isLoading,myInfo,myMetch,myGame,chamImg,winFail,killDeath,myItem,otherChamp,otherSummon,spell1,spell2,tData,rankData}= this.state;
    
     
@@ -120,8 +120,8 @@ componentDidMount(){
         
        
        
-<form name="input" method="post" action="./login.do">
-    <input type="text" name="memberName" />
+<form name="input" method="post" action="http://localhost:3001/api">
+    <input type="text" name="id" />
     <input type="submit" value="전송"/>
 </form>
       
