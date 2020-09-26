@@ -42,7 +42,7 @@ class Home extends React.Component{
 componentDidMount(){
   
   //일단 api 받기용
-  fetch('https://newserver51007.herokuapp.com/api')
+  fetch('https://newserver51007.herokuapp.com/api/account')
             .then(res=>res.json())
             .then(myData=>this.setState({myInfo: myData}))
   fetch('https://newserver51007.herokuapp.com/api/lol')
@@ -78,7 +78,7 @@ componentDidMount(){
             .then(tData=>this.setState({tData: tData}))  
  fetch('https://newserver51007.herokuapp.com/api/myRank')               
             .then(res=>res.json())
-            .then(tData=>this.setState({rankData: tData[0]}))
+            .then(tData=>tData[0]!=null?this.setState({rankData: tData[0]}):this.setState({rankData: ""}))
             .then(this.setState({isLoading: false})) 
             
   
@@ -120,7 +120,7 @@ componentDidMount(){
         
        
        
-<form name="input" method="post" action="https://newserver51007.herokuapp.com/api">
+<form name="input" method="get" action="https://newserver51007.herokuapp.com/api">
     <input type="text" name="id" />
     <input type="submit" value="전송"/>
 </form>
