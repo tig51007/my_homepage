@@ -120,7 +120,7 @@ componentDidMount(){
         
        
        
-<form name="input" method="get" action="https://newserver51007.herokuapp.com/api/account">
+<form name="input" method="post" action="https://newserver51007.herokuapp.com/api">
     <input type="text" name="id" />
     <input type="submit" value="전송"/>
 </form>
