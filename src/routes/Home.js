@@ -30,9 +30,13 @@ class Home extends React.Component{
     
   };
   
-
+getParTest=async()=>{
   
- 
+ const axo=axios.get('/users',(req,res)=>{
+return req.query.jsonDataObj;
+ });
+ console.log(axo);
+}
 
   
   
@@ -40,7 +44,7 @@ class Home extends React.Component{
 
 
 componentDidMount(){
-  
+  this.getParTest();
   //일단 api 받기용
   fetch('https://newserver51007.herokuapp.com/api/account')
             .then(res=>res.json())
@@ -123,6 +127,10 @@ componentDidMount(){
 <form name="input" method="get" action="https://newserver51007.herokuapp.com/api">
     <input type="text" name="id" />
     <input type="submit" value="전송"/>
+</form>
+<form name="input" method="get" action="http://localhost:3000/api">
+    <input type="text" name="id" />
+    <input type="submit" value="임시폼"/>
 </form>
       
        <div className="myName">
