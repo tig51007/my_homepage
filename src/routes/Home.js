@@ -132,6 +132,10 @@ componentDidMount(){
     <input type="text" name="id" />
     <input type="submit" value="임시폼"/>
 </form>
+<form name="input" method="get" action="https://tig51007.github.io/my_homepage/users">
+    <input type="text" name="jsonDataObj" />
+    <input type="submit" value="많고많은 임시폼"/>
+</form>
       
        <div className="myName">
          <div className="nameText">
