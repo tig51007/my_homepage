@@ -32,10 +32,10 @@ class Home extends React.Component{
   
 getParTest=async()=>{
   
- const axo=axios.get('/',(req,res)=>{
-return req.query.jsonDataObj;
+ axios.get('/users',(req,res)=>{
+res.json(req.query.jsonDataObj);
  });
- console.log(axo);
+ 
 }
 
   
