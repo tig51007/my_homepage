@@ -1,15 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import "./Home.css";
 import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
 import Game from "../components/Game";
 
-
+var count=0;
 
 
 
 class Home extends React.Component{
+  
   state={
     isLoading: true,
     myInfo:[],
@@ -26,64 +27,73 @@ class Home extends React.Component{
     tData:[],
     rankData:[],
     name:'',
-    theName:''
+    theName:'',
     
   };
   
-getParTest=async()=>{
+getFetch=async()=>{
   
- axios.get('/users',(req,res)=>{
-res.json(req.query.jsonDataObj);
- });
- 
-}
+
+
 
   
-  
-  
+fetch('https://newserver51007.herokuapp.com/api/account')
+.then(res=>res.json())
+.then(myData=>this.setState({myInfo: myData}))
+.catch(error =>count=count+1)
+fetch('https://newserver51007.herokuapp.com/api/lol')
+.then(res=>res.json())
+.then(metchData=>this.setState({myMetch: metchData[0]}))
+.catch(error =>count=count+1)
+fetch('https://newserver51007.herokuapp.com/api/lol3')               
+.then(res=>res.json())
+.then(gameData=>this.setState({myGame: gameData}))
+.catch(error =>count=count+1)
+fetch('https://newserver51007.herokuapp.com/api/lol5')               
+.then(res=>res.json())
+.then(winData=>this.setState({winFail:  winData}))
+.catch(error =>count=count+1)
+fetch('https://newserver51007.herokuapp.com/api/lol6')               
+.then(res=>res.json())
+.then(killData=>this.setState({killDeath:  killData}))
+.catch(error =>count=count+1)
+fetch('https://newserver51007.herokuapp.com/api/lol7')               
+.then(res=>res.json())
+.then(itemData=>this.setState({myItem:  itemData}))
+.catch(error =>count=count+1)
+fetch('https://newserver51007.herokuapp.com/api/lol8')               
+.then(res=>res.json())
+.then(summonData=>this.setState({otherSummon:  summonData})) 
+.catch(error =>count=count+1)
+fetch('https://newserver51007.herokuapp.com/api/lol9')               
+.then(res=>res.json())
+.then(champData=>this.setState({otherChamp:  champData})) 
+.catch(error =>count=count+1)
+fetch('https://newserver51007.herokuapp.com/api/lol10')               
+.then(res=>res.json())
+.then(mySpell=>this.setState({spell1: mySpell}))
+.catch(error =>count=count+1) 
+fetch('https://newserver51007.herokuapp.com/api/lol11')               
+.then(res=>res.json())
+.then(mySpell=>this.setState({spell2: mySpell}))
+.catch(error =>count=count+1)
+fetch('https://newserver51007.herokuapp.com/api/lol12')               
+.then(res=>res.json())
+.then(tData=>this.setState({tData: tData}))
+.catch(error =>count=count+1)  
+fetch('https://newserver51007.herokuapp.com/api/myRank')               
+.then(res=>res.json())
+.then(tData=>tData[0]!=null?this.setState({rankData: tData[0]}):this.setState({rankData: ""}))
+.catch(error =>count=count+1)
+
+}
 
 
 componentDidMount(){
-  this.getParTest();
+  if(count==0){
+  this.getFetch().then(this.setState({isLoading: false})) ;
   //일단 api 받기용
-  fetch('https://newserver51007.herokuapp.com/api/account')
-            .then(res=>res.json())
-            .then(myData=>this.setState({myInfo: myData}))
-  fetch('https://newserver51007.herokuapp.com/api/lol')
-            .then(res=>res.json())
-            .then(metchData=>this.setState({myMetch: metchData[0]}))
-  fetch('https://newserver51007.herokuapp.com/api/lol3')               
-            .then(res=>res.json())
-            .then(gameData=>this.setState({myGame: gameData}))
-            
-  fetch('https://newserver51007.herokuapp.com/api/lol5')               
-            .then(res=>res.json())
-            .then(winData=>this.setState({winFail:  winData}))
-  fetch('https://newserver51007.herokuapp.com/api/lol6')               
-            .then(res=>res.json())
-            .then(killData=>this.setState({killDeath:  killData}))
-  fetch('https://newserver51007.herokuapp.com/api/lol7')               
-            .then(res=>res.json())
-            .then(itemData=>this.setState({myItem:  itemData}))
-  fetch('https://newserver51007.herokuapp.com/api/lol8')               
-            .then(res=>res.json())
-            .then(summonData=>this.setState({otherSummon:  summonData})) 
-  fetch('https://newserver51007.herokuapp.com/api/lol9')               
-            .then(res=>res.json())
-            .then(champData=>this.setState({otherChamp:  champData})) 
-  fetch('https://newserver51007.herokuapp.com/api/lol10')               
-            .then(res=>res.json())
-            .then(mySpell=>this.setState({spell1: mySpell})) 
-  fetch('https://newserver51007.herokuapp.com/api/lol11')               
-            .then(res=>res.json())
-            .then(mySpell=>this.setState({spell2: mySpell}))
-  fetch('https://newserver51007.herokuapp.com/api/lol12')               
-            .then(res=>res.json())
-            .then(tData=>this.setState({tData: tData}))  
- fetch('https://newserver51007.herokuapp.com/api/myRank')               
-            .then(res=>res.json())
-            .then(tData=>tData[0]!=null?this.setState({rankData: tData[0]}):this.setState({rankData: ""}))
-            .then(this.setState({isLoading: false})) 
+  }
             
   
 }
@@ -110,7 +120,14 @@ componentDidMount(){
   
    
     return <section className ="container">
-
+<form name="input" method="get" action="https://newserver51007.herokuapp.com/api">
+    <input type="text" name="id" />
+    <input type="submit" value="전송"/>
+</form>
+<form name="input" method="get" action="http://localhost:3000/api">
+    <input type="text" name="id" />
+    <input type="submit" value="임시폼"/>
+</form>
       {isLoading
        ? <div className="loader" >
          <span className = "loader_text">30초 기다리쇼</span>
@@ -124,18 +141,8 @@ componentDidMount(){
         
        
        
-<form name="input" method="get" action="https://newserver51007.herokuapp.com/api">
-    <input type="text" name="id" />
-    <input type="submit" value="전송"/>
-</form>
-<form name="input" method="get" action="http://localhost:3000/api">
-    <input type="text" name="id" />
-    <input type="submit" value="임시폼"/>
-</form>
-<form name="input" method="get" action="https://tig51007.github.io/my_homepage/users">
-    <input type="text" name="jsonDataObj" />
-    <input type="submit" value="많고많은 임시폼"/>
-</form>
+
+
       
        <div className="myName">
          <div className="nameText">
