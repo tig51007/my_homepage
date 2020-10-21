@@ -93,7 +93,7 @@ componentDidMount(){
   if(count==0){setTimeout(()=>
   this.getFetch().then(this.setState({isLoading: false})) 
   //일단 api 받기용
-  ,5000)}
+  ,3000)}
             
   
 }
@@ -130,7 +130,7 @@ componentDidMount(){
 </form>
       {isLoading
        ? <div className="loader" >
-         <span className = "loader_text">30초 기다리쇼</span>
+         <span className = "loader_text">3초 기다리쇼</span>
          <div></div>
        </div>
 
