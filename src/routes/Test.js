@@ -8,7 +8,7 @@ function Test(){
     const incrementItem=()=>setItem(item+1);
     const decrementItem=()=>setItem(item-1);
     return <div>
-        <h1>{item}</h1>
+        <h1 >{item}</h1>
         <button onClick={incrementItem}>+</button>
         <button onClick={decrementItem}>-</button>
 

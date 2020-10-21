@@ -90,10 +90,10 @@ fetch('https://newserver51007.herokuapp.com/api/myRank')
 
 
 componentDidMount(){
-  if(count==0){
-  this.getFetch().then(this.setState({isLoading: false})) ;
+  if(count==0){setTimeout(()=>
+  this.getFetch().then(this.setState({isLoading: false})) 
   //일단 api 받기용
-  }
+  ,1000)}
             
   
 }
