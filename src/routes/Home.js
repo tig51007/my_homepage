@@ -28,6 +28,7 @@ class Home extends React.Component{
     rankData:[],
     name:'',
     theName:'',
+    hide:true
     
   };
   
@@ -102,7 +103,7 @@ componentDidMount(){
     
   
  
-    const {name,theName,isLoading,myInfo,myMetch,myGame,chamImg,winFail,killDeath,myItem,otherChamp,otherSummon,spell1,spell2,tData,rankData}= this.state;
+    const {hide,name,theName,isLoading,myInfo,myMetch,myGame,chamImg,winFail,killDeath,myItem,otherChamp,otherSummon,spell1,spell2,tData,rankData}= this.state;
    
     
    
@@ -120,9 +121,9 @@ componentDidMount(){
   
    
     return <section className ="container">
-<form name="input" method="get" action="https://newserver51007.herokuapp.com/api">
+<form name="input" method="get" action="https://newserver51007.herokuapp.com/api" >
     <input type="text" name="id" />
-    <input type="submit" value="전송"/>
+    <input type="submit" value="전송"onclick={()=>this.setState({hide:false})}/>
 </form>
 <form name="input" method="get" action="http://localhost:3000/api">
     <input type="text" name="id" />
@@ -134,7 +135,7 @@ componentDidMount(){
          <div></div>
        </div>
 
-       :(<body>
+       :hide?<div>입력하쇼</div>:(<body>
          
          <div className="backGroundTheme">
          
