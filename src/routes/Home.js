@@ -123,7 +123,7 @@ componentDidMount(){
     return <section className ="container">
 <form name="input" method="get" action="https://newserver51007.herokuapp.com/api" >
     <input type="text" name="id" />
-    <input type="submit" value="전송"onclick={()=>hide=false}/>
+    <input type="submit" value="전송"/>
 </form>
 <form name="input" method="get" action="http://localhost:3000/api">
     <input type="text" name="id" />
@@ -135,7 +135,7 @@ componentDidMount(){
          <div></div>
        </div>
 
-       :hide?<div>입력하쇼</div>:(<body>
+       :myInfo.name?(<body>
          
          <div className="backGroundTheme">
          
@@ -208,7 +208,7 @@ componentDidMount(){
   
     
      </div>
-   </body>)}
+   </body>):<body><div className="notSetting">검색하소</div></body>}
       </section>
 }
 }
