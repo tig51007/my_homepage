@@ -84,7 +84,7 @@ fetch('https://newserver51007.herokuapp.com/api/lol12')
 .catch(error =>count=count+1)  
 fetch('https://newserver51007.herokuapp.com/api/myRank')               
 .then(res=>res.json())
-.then(tData=>tData[0]!=null?this.setState({rankData: tData[0]}):this.setState({rankData: ""}))
+.then(tData=>tData[1]!=null?this.setState({rankData: tData[1]}):this.setState({rankData: ""}))
 .catch(error =>count=count+1)
 
 }
@@ -151,11 +151,12 @@ componentDidMount(){
        </div>
        </div>
    <div className="tier" >
-     티어:{rankData.tier} {rankData.rank} 승:{rankData.wins} 패:{rankData.losses}
+     솔로랭크:{rankData.tier} {rankData.rank} 승:{rankData.wins} 패:{rankData.losses}
      
      </div>
      
-     </div><div className="compoGame">
+     
+     </div><span className="test1" >asdg</span><span className="compoGame">
     {imE.map(game=> (
                         <Game
                         name={game.name}
@@ -207,8 +208,8 @@ componentDidMount(){
      
   
     
-     </div>
-   </body>):<body><div className="notSetting">검색하소</div></body>}
+     </span>
+   </body>):(<body><div className="notSetting">검색하소</div></body>)}
       </section>
 }
 }
