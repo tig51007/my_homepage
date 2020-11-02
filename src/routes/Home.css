@@ -38,13 +38,7 @@ font-weight: bold;
   
   
 }
-.test1{
-  background-color: lightgray;
-width: 100%;
-height: 100%;
 
-
-}
 .tier{
   color:white
 }
@@ -132,14 +126,33 @@ display:flex;
   width:100%;
   
 }
+.test1{
+  background-color:white;
+  
+width: 200px;
+left:0px;
+margin:5px;
+position: static;
+border-radius:5px;
+}
+.testContent{
+  position: static;
+}
 .compoGame{
+  border-radius:5px;
   background-color: white;
 width: 1000px;
-height: 100%;
-float: right;
+float:right;
+position: absolute;
+margin:5px;
+
 }
 .sendName{
   color:white
+}
+.test2{
+  float:left;
+  
 }
 .js-game{
   width:100%;
@@ -149,5 +162,27 @@ float: right;
 }
 .loader{
   color:white
+}
+.tierImg{
+  width:100px;
+  height: 115px;
+}
+.tierRank1{
+  top: 50%;
+  position: static;
+  float: right;
+  color:black;
+  text-decoration: none;
+   
+  
+  font-size: 12px;
+  text-align: left;  
+  font-weight: 600;
+}
+.tierRank1_A{
+  color:blue;
+  text-transform:capitalize;
+  font-size: 14px;
+ 
 }
 
