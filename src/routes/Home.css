@@ -35,7 +35,7 @@ align-items:center;
 font-size: 15px;
 font-weight: bold;
   color:black
-  
+ 
   
 }
 
@@ -109,7 +109,7 @@ display:flex;
 .matchInfo{
   font-size:8px;
   text-align: left;
- 
+  
   
 }
 .table{
@@ -139,19 +139,19 @@ border-radius:5px;
   position: static;
 }
 .compoGame{
-  border-radius:5px;
+  
   background-color: white;
 width: 1000px;
-float:right;
-position: absolute;
-margin:5px;
 
+position: relative;
+margin:5px;
+border-radius:5px;
 }
 .sendName{
   color:white
 }
 .test2{
-  float:left;
+ 
   
 }
 .js-game{
@@ -185,4 +185,24 @@ margin:5px;
   font-size: 14px;
  
 }
-
+aside,section{
+  float: left;
+  
+}
+section{
+  float:right;
+  right:0px;
+  position: relative;
+}
+.cssBox{
+  
+  width:1220px;
+  
+}
+footer{
+  position: relative;
+  width:100%;
+  height:100px;
+  margin-top:3000px;
+   bottom:0px;
+}
