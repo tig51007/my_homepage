@@ -168,8 +168,9 @@ class Search extends React.Component {
     var language = "ko_KR";
     var match_champion_name = {};
     const accountData = await axios.get(
-      `/lol/summoner/v4/summoners/by-name/${this.state.name}?api_key=${api_key}`
+      `https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/${this.state.name}?api_key=${api_key}`
     );
+    console.log(accountData);
 summonerMe=this.state.name;
     const accountID = accountData.data.accountId;
     this.setState({myInfo: accountData.data});
