@@ -11,6 +11,11 @@ import tier8 from "../tier/Emblem_Grandmaster.png";
 import tier9 from "../tier/Emblem_Challenger.png";
 import Game from "../components/Game";
 import "./Home.css";
+
+
+axios.defaults.baseURL = 'https://kr.api.riotgames.com';
+axios.defaults.headers.post['Content-Type'] = 'application/json;charset=utf-8';
+axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
 async function name(params) {
   this.count = params
   var test = new Array()
@@ -167,10 +172,13 @@ class Search extends React.Component {
     var version = "10.21.1";
     var language = "ko_KR";
     var match_champion_name = {};
+   
+    
+   
+    
     const accountData = await axios.get(
-      `https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/${this.state.name}?api_key=${api_key}`
+      `/lol/summoner/v4/summoners/by-name/${this.state.name}?api_key=${api_key}`
     );
-    console.log(accountData);
 summonerMe=this.state.name;
     const accountID = accountData.data.accountId;
     this.setState({myInfo: accountData.data});
