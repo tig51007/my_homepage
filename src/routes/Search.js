@@ -13,9 +13,7 @@ import Game from "../components/Game";
 import "./Home.css";
 
 
-axios.defaults.baseURL = 'https://kr.api.riotgames.com';
-axios.defaults.headers.post['Content-Type'] = 'application/json;charset=utf-8';
-axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
+
 async function name(params) {
   this.count = params
   var test = new Array()
@@ -175,7 +173,9 @@ class Search extends React.Component {
    
     
    
-    
+    //axios.defaults.baseURL = 'https://kr.api.riotgames.com';
+//axios.defaults.headers.post['Content-Type'] = 'application/json;charset=utf-8';
+//axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
     const accountData = await axios.get(
       `/lol/summoner/v4/summoners/by-name/${this.state.name}?api_key=${api_key}`
     );
