@@ -338,7 +338,9 @@ summonerMe=this.state.name;
       }
     }
     };
+    console.log(sort_match_data);
     for (var k = 0; k < 20; k++) {
+      
       sort_match_data[k] = match_select["data"]["matches"][k];
       matchID[k] = sort_match_data[k]["gameId"];
       match_champion_code[k] = sort_match_data[k]["champion"];
@@ -368,6 +370,7 @@ summonerMe=this.state.name;
      
    imE[i]={...myGame[i],...sortWinFail[i],...killDeath[i],...myItem[i],...otherSummon[i],...otherChamp[i],...spell1[i],...spell2[i],...tData[i]};
    }
+   console.log(rankData.tier);
     if(rankData.tier=="IRON"){
       tier=tier1
       tierA=1
