@@ -177,7 +177,7 @@ class Search extends React.Component {
 //axios.defaults.headers.post['Content-Type'] = 'application/json;charset=utf-8';
 //axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
     const accountData = await axios.get(
-      `/lol/summoner/v4/summoners/by-name/${this.state.name}?api_key=${api_key}`
+      `https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/${this.state.name}?api_key=${api_key}`
     );
     console.log(accountData);
 summonerMe=this.state.name;
