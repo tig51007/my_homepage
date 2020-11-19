@@ -179,6 +179,7 @@ class Search extends React.Component {
     const accountData = await axios.get(
       `/lol/summoner/v4/summoners/by-name/${this.state.name}?api_key=${api_key}`
     );
+    console.log(accountData);
 summonerMe=this.state.name;
     const accountID = accountData.data.accountId;
     this.setState({myInfo: accountData.data});
@@ -189,6 +190,7 @@ summonerMe=this.state.name;
         api_key +
         ""
     );
+    console.log(theRank)
    await theRank["data"][0]!=null?this.setState({rankData: theRank["data"][0]}):this.setState({rankData: ""})
     await theRank["data"][1]!=null?this.setState({fRankData: theRank["data"][1]}):this.setState({fRankData: ""})
     
@@ -200,6 +202,7 @@ summonerMe=this.state.name;
         api_key +
         ""
     );
+    console.log(match_select);
     const GET_MATCH_CHAMPION=async()=>{
       var data=await axios.get("http://ddragon.leagueoflegends.com/cdn/"+version+"/data/"+language+"/champion.json")
       var Cdata=data["data"]["data"];
@@ -338,7 +341,7 @@ summonerMe=this.state.name;
       }
     }
     };
-    console.log(sort_match_data);
+    
     for (var k = 0; k < 20; k++) {
       
       sort_match_data[k] = match_select["data"]["matches"][k];
@@ -370,7 +373,7 @@ summonerMe=this.state.name;
      
    imE[i]={...myGame[i],...sortWinFail[i],...killDeath[i],...myItem[i],...otherSummon[i],...otherChamp[i],...spell1[i],...spell2[i],...tData[i]};
    }
-   console.log(rankData.tier);
+   
     if(rankData.tier=="IRON"){
       tier=tier1
       tierA=1
