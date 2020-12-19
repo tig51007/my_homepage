@@ -23,6 +23,24 @@ hr{
   width: 25px;
   border:1px solid black
 }
+.box-container{
+  display:flex;
+  flex-direction:row;
+  text-align: center;
+  justify-content: center;
+  
+}
+.box{
+  background-color: lightgray;
+  margin:30px;
+  width:60px;
+  height: 60px;
+  border-radius: 10px;
+}
+.plus-box-container{
+  flex-direction:column;
+  
+}
 .match{
   background-color: lightblue;
   width: 800px;

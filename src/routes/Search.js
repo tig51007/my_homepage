@@ -167,7 +167,7 @@ class Search extends React.Component {
     var matchSummoner = {};
     var myspellId = {};
     var mySpellImg = {};
-    var version = "10.21.1";
+    var version = "10.25.1";
     var language = "ko_KR";
     var match_champion_name = {};
    
@@ -177,7 +177,7 @@ class Search extends React.Component {
 //axios.defaults.headers.post['Content-Type'] = 'application/json;charset=utf-8';
 //axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
     const accountData = await axios.get(
-      `https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/${this.state.name}?api_key=${api_key}`
+      `/lol/summoner/v4/summoners/by-name/${this.state.name}?api_key=${api_key}`
     );
     console.log(accountData);
 summonerMe=this.state.name;
