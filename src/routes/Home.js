@@ -114,10 +114,14 @@ handleChange=(e)=> {
           <a class="box" target="_blank" href={this.props.history.href ='http://www.google.com'}>구글</a>
           <a class="box" target="_blank" href={this.props.history.href ='https://www.youtube.com/'}>유튜브</a>
           <a class="box" target="_blank" href={this.props.history.href ='https://www.op.gg/'}>op.gg</a>
-          <a class="box" target="_blank" href={this.props.history.href ='https://forum.netmarble.com/sk2'}>세나2 포럼</a>
-          <a class="box" target="_blank" href={this.props.history.href ='https://www.kmu.ac.kr/'}>계명대학교</a>
+          
+          
         </div>
-        
+        <div class="box-container">
+        <a class="box" target="_blank" href={this.props.history.href ='https://forum.netmarble.com/sk2'}>세나2 포럼</a>
+          <a class="box" target="_blank" href={this.props.history.href ='https://www.kmu.ac.kr/'}>계명대학교</a>
+          <a class="box" target="_blank" href={this.props.history.href ='https://github.com/tig51007/'}>깃허브</a>
+          </div>
         </div>
 
   </body>
